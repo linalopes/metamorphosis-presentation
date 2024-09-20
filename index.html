@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Metamorphosis Reimagined - A Merian Homage</title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/lilothink.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813038551_55c752d42d_z.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<style>
+body {
+	background-color: rgba(0,0,0,0) !important;
+}
+</style>
+
+<!-- Slide COVER REPORT -->
+
+
+<div class="fill-deep-purple pb-16 scale-4" style="position: absolute; left: 30%; top: 42.5%; height: 15%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+
+<svg width="525" height="136">
+<path d="M158.849 95.9386C152.602 95.9386 147.624 94.1005 143.916 90.4243C140.208 86.697 138.354 81.2592 138.354 74.111V62.0101C138.354 54.8619 140.208 49.4496 143.916 45.7734C147.624 42.0461 152.602 40.1825 158.849 40.1825C165.097 40.1825 170.074 42.0461 173.782 45.7734C177.49 49.4496 179.344 54.8619 179.344 62.0101V74.111C179.344 81.2592 177.49 86.697 173.782 90.4243C170.074 94.1005 165.097 95.9386 158.849 95.9386ZM158.849 91.4965C163.827 91.4965 167.662 89.9903 170.354 86.9778C173.097 83.9654 174.468 79.7275 174.468 74.2642V61.8569C174.468 56.3936 173.097 52.1557 170.354 49.1433C167.662 46.1308 163.827 44.6246 158.849 44.6246C153.922 44.6246 150.087 46.1308 147.345 49.1433C144.602 52.1557 143.23 56.3936 143.23 61.8569V74.2642C143.23 79.7275 144.602 83.9654 147.345 86.9778C150.087 89.9903 153.922 91.4965 158.849 91.4965Z"></path>
+<path d="M223.165 40.1874H231.453V95.99H223.165V40.1874Z"></path>
+<path d="M204.661 51.2366L210.522 45.3452L249.774 84.8036L243.914 90.695L204.661 51.2366Z"></path>
+<path d="M254.969 63.826V72.1576L199.457 72.1576V63.826L254.969 63.826Z"></path>
+<path d="M243.982 45.3453L249.842 51.2366L210.59 90.695L204.729 84.8037L243.982 45.3453Z"></path>
+<path d="M40 95.9899V40H45.1114V91.3507H74.5018V95.9899H40Z"></path>
+<path d="M83.6763 95.9899V40H88.7877V95.9899H83.6763Z"></path>
+<path d="M100.502 95.9899V40H105.613V91.3507H135.003V95.9899H100.502Z"></path>
+<path d="M283.028 95.99V47.9998H265.959V40.1874H308.67V47.9998H291.602V95.99H283.028Z"></path>
+<path d="M316.441 95.99V40.1874H325.015V64.1028H348.356V40.1874H356.93V95.99H348.356V71.9152H325.015V95.99H316.441Z"></path>
+<path d="M368.54 95.99V40.1874H377.114V95.99H368.54Z"></path>
+<path d="M388.697 95.99V40.1874H405.21L420.294 90.2503H421.564V40.1874H430.059V95.99H413.546L398.462 45.8474H397.192V95.99H388.697Z"></path>
+<path d="M441.649 95.99V40.1874H450.223V63.3853H451.493L472.214 40.1874H483.407L458.321 67.6901L484.281 95.99H472.769L451.493 72.3137H450.223V95.99H441.649Z"></path>
+</svg>
+
+</div>
+
+<div class="deep-purple type" style="position: absolute; left: 10%; top: 50%; height: 40%; width: 80%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start" align="top">
+
+## Metamorphosis Reimagined
+### 2024 - Luzern
+#### by Lina Lopes
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813477270_209a53ce3c_b.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide COVER PROJECT -->
+
+
+<div class="gray-green fs-8 font-title" style="position: absolute; left: 100%; top: -5%; height: 100%; width: 0%; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-evenly" align="right">
+
+Metamorphosis Reimagined - A Merian Homage
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813038616_50365ec754_z.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide SUMMARY -->
+
+
+<div class="deep-purple fs-4" style="position: absolute; left: 0%; top: 0%; height: 30%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+# Summary
+</div>
+
+
+<div class="font-highlight deep-purple fs-2 ps-30" style="position: absolute; left: 0%; top: 20%; height: 80%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+1. [Intro](#/4)
+2. [Objectives](#/8)
+3. [A manifest from the artist](#/14)
+4. [Production](#/17)
+5. [Print a PDF](#/21)
+6. [Contacts](#/22)
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813038616_efa9178725_o.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide SEPARATOR  BG-PINK -->
+
+
+<div class="font-title gray-green fs-8" style="position: absolute; left: 30%; top: 15%; height: 70%; width: 70%; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-evenly" align="right">
+
+# Intro
+## Exhibition Description
+## Workshop Description
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide 1 DISPLACED COLUMN  -->
+
+<div class="deep-purple" style="position: absolute; left: 30%; top: 5%; height: undefined%; width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+## Intro
+"Metamorphosis Reimagined: A Merian Homage" is an innovative art project that blends <mark class="hltr-pink">historical scientific illustration, speculative design fiction, robots and cutting-edge AI technology</mark> to create a unique homage to Maria Sybilla Merian. This project comprises an immersive exhibition and an engaging workshop, exploring the intersections of art, science, and technology.
+
+Maria Sibylla Merian was a pioneering naturalist and scientific illustrator, renowned for her groundbreaking studies of insects and plants. In an era when such work was rare for women, Merian’s meticulous observations and illustrations challenged the scientific conventions of her time. Her legacy is not only a testament to the power of observation and dedication but also a precursor to modern scientific illustration. This project seeks to honor her influence by merging her passion for nature with today’s technological advancements and future's speculation design, creating a dialogue between the past and the future of scientific exploration.
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + IMAGE CENTER OR SVG -->
+
+<div class="bg-pink font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="font-title deep-purple pt-3" style="position: absolute; left: 10%; top: 15%; height: 70%; width: 80%; display: flex; flex-direction: column; align-items: center; justify-content: center" align="center">
+
+<img src="https://live.staticflickr.com/65535/53872023992_4c4501db22_o.jpg" width="100%" alt="DALL·E 2024-07-22 09.57.28 - An illustrated layout of an exhibition space for &#x27;Metamorphosis Reimagined_ A Merion Homage&#x27;. In the center, a large glass panel with a Polargraph mac"></img>
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-pink font-title deep-purple fw-bold ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: 10%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+## Exhibition Description
+
+The centerpiece of the exhibition is a large glass panel with a Polargraph drawbot, enhanced with bioluminescent and fluorescent colors, creates intricate illustrations under UV light. Surrounding this central piece are six smaller Drawbot machines drawing on white paper atop easels, each creating detailed AI artworks inspired by Merian's studies. These smaller pieces are displayed in wooden frames, reminiscent of naturalist butterfly collections.
+
+The exhibition is a hybrid between robots, AI-generated models, art, and science, inviting viewers to ponder: How has our trust in science and technology evolved from Merian's time? We are able to observe the world and figure out what’s happening, just as Merian did with her brushes in her time. Today, instead of brushes can we use generative AI to help us observe the world and imagine other possibilities around the Earth?
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-turquoise font-title deep-purple fw-bold ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: 10%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+## Workshop Description
+
+The workshop is divided into two metaphorically themed parts:
+
+1. **"The Metamorphosis"**: This conceptual part explores the radical imagination of science, AI's role in artistic creation, and critical perspectives on machine learning and human-AI interaction. Participants will engage in discussions and create their own AI-generated prompts. <mark class="hltr-cyan">Is our fear of AI taking control actually a reflection of our own human anxieties?</mark>
+
+2. **"The Apparatus"**: This technical part focuses on the hardware and software behind the Polargraph drawbots. Participants will assemble and operate the drawbots, convert AI-generated images into G-code, and create their own drawings. <mark class="hltr-cyan">Can machines truly learn without experiencing the world through a body?</mark>
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813038566_3b2b774821_o.png" width="1920" height="1080" alt="bg-chapter-tur-1" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide SEPARATOR  BG-TURQUOISE -->
+
+
+<div class="font-title deep-purple fs-8" style="position: absolute; left: 30%; top: 20%; height: 60%; width: 70%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+# Objectives
+## General Objectives
+## Specific Objectives
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-pink font-title deep-purple fw-bold ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+## General Objectives
+- To bridge historical and contemporary perspectives on scientific observation and artistic creation.
+- To explore and challenge the boundaries between art, science, and technology.
+- To provoke critical thinking and discussions on the role of AI and automation in modern society.
+- To honor the legacy of Maria Sybilla Merian through innovative and interdisciplinary art.
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-turquoise font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+Specific Objectives
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+### 1. Exhibition:
+- To create a visually impactful centerpiece using a Polargraph drawbot on a large glass panel.   
+- To produce detailed, AI-generated drawings on white paper using smaller Polargraph machines.
+- To integrate bioluminescent and fluorescent effects under UV light for an immersive experience.
+- To display smaller pieces in wooden frames, evoking naturalist collections.
+- To pose critical questions that engage viewers in reflection and discussion.
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-turquoise font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+Specific Objectives
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+### 2. Workshop:
+- To provide a conceptual exploration of the radical imagination of science and AI's role in art.
+- To engage participants in creating AI-generated prompts and exploring their creative potential.
+- To offer hands-on experience in assembling and operating Polargraph drawbots.
+- To teach participants how to convert AI-generated images into G-code and create drawings.
+- To discuss and reflect on the philosophical and ethical implications of AI and automation.
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-turquoise font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+Specific Objectives
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+### 3. Technical Aspects:
+- To utilize advanced AI technology for generating artistic prompts and images.
+- To employ Polargraph drawbots for precise and intricate drawings.
+- To experiment with bioluminescent and fluorescent materials for visual effects.
+- To ensure the technical feasibility and safety of the exhibition setup.
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-turquoise font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+Specific Objectives
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+### 4. Conceptual Aspects:
+- To draw connections between Merian's historical context and contemporary technological advancements.
+- To explore the impact of AI on human creativity and the nature of learning.
+ - To question the evolving trust in science and technology and its societal implications.
+- To reflect on the philosophical insights of Vilém Flusser regarding technical apparatuses.
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813477270_d987eba593_o.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide SEPARATOR  BG-DEEP-PURPLE -->
+
+
+<div class="font-title turquoise fs-8" style="position: absolute; left: 30%; top: 20%; height: 60%; width: 70%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+# A Manifest from the artist
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide 2 COLUMNS TEXT -->
+<div class="deep-purple pt-3 two-columns fs-0 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+## Part1
+As an artist from South America, my journey has been one of continuous exploration and connection between different worlds. I create machines that draw for me, and now, I am fascinated by AI —machines that are not physical but expand the possibilities of my imagination and observation of the world. This project is deeply personal and relevant, connecting my history with the legacy of Maria Sybilla Merian.
+
+Merian’s work intrigued me because, like me, she had a unique ability to bridge different worlds. She traveled to Suriname, bringing her meticulous observations of South American flora and fauna to Europe. I found her work by accident while researching the origins of scientific illustration. Her story resonated with me as she navigated the realms of art and science in her era.
+
+Living in Switzerland, I feel I am in a similar position—able to study and observe how future technologies and second nature phenomena unfold. <mark class="hltr-pink">Unlike Merian, who meticulously observed plants and insects, my focus is on the second nature: how people interact with science and technology, a passion driven by the works of philosophers like Vilém Flusser.</mark> Flusser, who also had ties to South America, explored the impact of technical apparatuses on human culture in his book "Philosophy of the Black Box."
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide 2 COLUMNS TEXT -->
+<div class="deep-purple pt-3 two-columns fs-0 flex-even" style="position: absolute; left: 0%; top: NaN%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+## Part2
+
+This project is relevant today because it <mark class="hltr-pink">bridges historical and contemporary perspectives on observation and imagination.</mark> By combining Merian’s detailed illustrations with modern AI technology, we question how our tools influence our understanding of the world. This intersection of art, science, and technology is crucial in a time when AI and automation are reshaping our reality.
+
+In today’s world, science and technology are often perceived with an almost religious reverence. This project invites viewers to critically examine this trust. Just as Merian’s contemporaries were skeptical of her discoveries, we must question our reliance on modern scientific paradigms.<mark class="hltr-pink"> Are we blindly trusting technology without understanding its implications?</mark>
+
+By bringing my South American perspective to Europe, I hope to offer a unique lens through which to view these issues. This project is not just an homage to Merian, but also a <mark class="hltr-pink">reflection on the evolving nature of observation, imagination, and trust in science and technology</mark>.
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813477250_15c7f0f9a1_o.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide SEPARATOR  BG-PINK-PHOTO -->
+
+
+<div class="font-title gray-green fs-8" style="position: absolute; left: 30%; top: 15%; height: 70%; width: 70%; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-evenly" align="right">
+
+# Production
+## Target Audience
+## Schedule
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide IMAGE (PHOTO OR VIDEO) + TEXT COLUMN  -->
+<div class="bg-turquoise font-title fs-10" style="position: absolute; left: 0%; top: 0%; height: 100%; width: 30%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+ <img src="https://live.staticflickr.com/65535/53873342160_48dd1dd78a_o.jpg" alt="DALL·E 2024-07-22 10.02.58 - A detailed sketch in the style of Maria Sybilla Merian, but with a futuristic twist. A chrysalis hangs from a bioluminescent plant. The chrysalis has"></img>
+</div>
+
+<div class="font-title deep-purple" style="position: absolute; left: 45%; top: 0%; height: 90%; width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+# Summary of Metamorphosis Reimagined
+
+### Exhibition Setup
+- Central glass installation with a Polargraph drawbot.
+- UV lighting for bioluminescent and fluorescent effects.
+- Six smaller Polargraph machines on easels, drawing on white paper.
+- Wooden frames for displaying the smaller pieces.
+
+### Workshop Structure
+- **"The Metamorphosis"**: Conceptual exploration, discussions, and AI prompt creation.
+- **"The Apparatus"**: Hands-on assembly, operation of drawbots, and creating drawings.
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-pink font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: 10%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+# Target Audience
+
+The exhibition and workshop are designed for a diverse audience, including:
+- Artists and art enthusiasts interested in the intersection of traditional and digital art.
+- Scientists and technologists exploring the integration of AI in creative processes.
+- Educators and students in fields of art, science, and technology.
+- General public with an interest in innovative art exhibitions and workshops.
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-dark-background drop" data-background-color="transparent" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide STRIPE + 2 COLUMNS TEXT -->
+
+<div class="bg-pink font-title deep-purple ps-2 fs-2" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+
+</div>
+
+<div class="deep-purple two-columns fs-2 flex-even" style="position: absolute; left: 0%; top: 10%; height: undefined%; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly" align="left">
+
+# Schedule
+
+- **Pre-production (2 months)**: Planning, AI image generation, and technical setup.
+- **Assembling (1 week)**: Setting up the exhibition space and testing equipment.
+- **Workshop (1 week)**: Conducting the conceptual and technical sessions.
+- **Exhibition Duration (1-2 months)**: Displaying the artworks.
+- **Potential Publication (6 months post-exhibition)**: Documenting the project and creating a publication.
+
+
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813477165_25942757c0_o.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide PDF -->
+
+
+<div class="fs-6 deep-purple" style="" >
+
+<a href="?print-pdf"><h1>Click here to print this document as a PDF</h1></a>
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="https://live.staticflickr.com/65535/53813373644_7f6e0862cf_o.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- Slide CONTACT  -->
+
+
+<div class="deep-purple" style="position: absolute; left: 20%; top: 10%; height: 20%; width: 30%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+## Lina Lopes
+
+lina@lilothink.science
+
+www.lilothink.science
+</div>
+
+<div class="deep-purple fs-2" style="position: absolute; left: 20%; top: 70%; height: 5%; width: 30%; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-evenly" align="left">
+
+São Paulo - Brazil
+
+Luzern - Switzerland
+</div>
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+		  RevealChalkboard, 
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":1920,"height":1080,"margin":0.04,"controls":true,"controlsLayout":"bottom-right","progress":true,"slideNumber":false,"navigationMode":"linear","transition":"convex","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
